@@ -10,4 +10,6 @@ firstboot1.0.1：引入Swagger。
 3.相关技术
 SPringBoot、Maven、Swagger
 
-4.总结
+4. 辅助说明
+根路径：mybatis-generator，生成数据访问层模板代码。
+5.总结
