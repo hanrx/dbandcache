@@ -24,9 +24,10 @@ DROP TABLE IF EXISTS `t_car`;
 CREATE TABLE `t_car`  (
   `id` bigint(0) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车名',
-  `color` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车主',
+  `color` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车的颜色',
   `owner` bigint(0) NOT NULL COMMENT '车主',
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) ,
+  key 'idx_owner' ('owner') USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

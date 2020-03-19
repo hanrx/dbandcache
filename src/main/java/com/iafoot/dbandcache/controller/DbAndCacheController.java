@@ -1,6 +1,7 @@
 package com.iafoot.dbandcache.controller;
 
 import com.iafoot.dbandcache.model.User;
+import com.iafoot.dbandcache.model.UserAndCar;
 import com.iafoot.dbandcache.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,15 @@ public class DbAndCacheController {
     @RequestMapping(value = "/getUserInfo",method = RequestMethod.GET)
     public User getUserInfo(@RequestParam("id") long id){
         return userService.getUser(id);
+    }
+
+    @ApiOperation("根据用户ID获取用户及其车辆信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name = "id",dataType = "long",required = true,value = "用户的id",defaultValue = "1")
+    })
+    @RequestMapping(value = "/getUserAndCar",method = RequestMethod.GET)
+    public UserAndCar getUserAndCar(@RequestParam("id") long id){
+        return userService.getUserAndCar(id);
     }
 }
 
