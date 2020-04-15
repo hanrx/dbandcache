@@ -17,6 +17,18 @@ public class DbAndCacheController {
     @Autowired
     private UserService userService;
 
+    @ApiOperation("根据ID获取用户信息Cache")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",name ="id",dataType = "long",required = true,value = "用户的id", example ="1")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 401,message = "权限校验不通过")
+    })
+    @RequestMapping(value = "/getUserInfoCache",method = RequestMethod.GET)
+    public User getUserInfoCache(@RequestParam("id") long id){
+        return userService.getUserCache(id);
+    }
+
     @ApiOperation("根据ID获取用户信息")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name ="id",dataType = "long",required = true,value = "用户的id",defaultValue = "1")
